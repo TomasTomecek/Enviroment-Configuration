@@ -12,6 +12,9 @@ BLUE='\e[1;34m'
 CYAN='\e[1;36m'
 NC='\e[0m' # No Color
 
+#SOURCE git-prompt.sh
+source /usr/share/git-core/contrib/completion/git-prompt.sh
+
 #EXPORTS
 
 #export GIT_PS1_SHOWDIRTYSTATE=true
