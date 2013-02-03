@@ -1,15 +1,16 @@
 [user]
-	name = Tomas Tomecek
-	email = ttomecek@redhat.com
+    name = Tomas Tomecek
+    email = ttomecek@redhat.com
 [color]
-	ui = auto
+    ui = auto
 [core]
-	editor = vim
+    editor = vim
 [alias]
-	ci = commit
+    ci = commit
     st = status
     co = checkout
     br = branch
     pu = push
+    a = add
 [push]
-	default = current
+    default = current

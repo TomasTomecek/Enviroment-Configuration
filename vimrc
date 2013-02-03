@@ -4,12 +4,27 @@ endif
 
 set nocompatible	" Use Vim defaults (much better!)
 set bs=indent,eol,start		" allow backspacing over everything in insert mode
-"set ai			" always set autoindenting on
+set ai			" always set autoindenting on
 "set backup		" keep a backup file
 set viminfo='20,\"50	" read/write a .viminfo file, don't store more
 			" than 50 lines of registers
-set history=50		" keep 50 lines of command line history
+set history=250		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
+filetype indent plugin on
+filetype plugin on
+set laststatus=2
+set number
+set pastetoggle=<F2>
+set ignorecase
+set smartcase
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set bg=light
+set showmode
+set modeline
+highlight search ctermbg=lightYellow  ctermfg=black
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -50,8 +65,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
-
-filetype plugin on
 
 if &term=="xterm"
      set t_Co=8
