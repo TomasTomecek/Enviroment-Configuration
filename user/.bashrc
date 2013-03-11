@@ -13,6 +13,7 @@ NC='\e[0m' # No Color
 
 #SOURCE git-prompt.sh
 source /usr/share/git-core/contrib/completion/git-prompt.sh
+source /etc/profile.d/rvm.sh
 
 #export KRB5CCNAME=/tmp/qpid123456
 
