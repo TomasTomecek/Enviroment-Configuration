@@ -1,0 +1,9 @@
+# list of rules for copying configuration for special files
+# all the other files are copyied regularly as
+# $FILE -> ~/$FILE
+
+# there has to be at least 3 spaces!
+# source    destination
+
+.config/powerline/   .config/powerline
+
