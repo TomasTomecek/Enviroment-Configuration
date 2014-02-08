@@ -23,6 +23,28 @@ GIT_PS1_SHOWCOLORHINTS=true
 export HISTSIZE=200000
 export HISTFILESIZE=200000
 
+# functions
+
+function susp {
+  if [ -n "$1" ] ; then
+    echo 'pm-suspend' | at now + $1 minutes;
+  else
+    echo -e "Usage\n$0 <delay in minutes>";
+  fi
+}
+
+function enabled {
+    for SERVICE in `systemctl -t service --full --all list-units | awk '{
+    print $1 }'`; do
+        echo -n "$SERVICE:  "
+        if systemctl is-enabled $SERVICE >/dev/null; then
+            echo ENABLED
+        else
+            echo disabled
+        fi
+    done 2>/dev/null
+}
+
 function exitstatus {
     EXITSTATUS="$?"
     JOBS_COUNT=$(jobs | wc -l)
