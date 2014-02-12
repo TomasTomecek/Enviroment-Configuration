@@ -4,6 +4,7 @@ Script for distribution of configuration from current git repo
 """
 import os
 import re
+import git
 import os.path as osp
 #import sys
 #import argparse
@@ -95,6 +96,29 @@ def sync():
     for cf in CONF_FILES + RULES:
         if not conf_file_conflicts(cf):
            link(cf)
+
+def setup_sublime():
+    pass
+
+def setup():
+    """
+    check if core components are installed:
+     * vundle
+     * solarized for vim
+     * font
+     ...
+    """
+    repos = [
+        ("git://github.com/altercation/vim-colors-solarized.git", "~/.vim/bundle/vim-colors-solarized"),
+        ("https://github.com/gmarik/vundle.git", "~/.vim/bundle/vundle"),
+        ('https://github.com/seebi/dircolors-solarized', '~/projects/dircolors-solarized'),
+    ]
+    for repo in repos:
+        if not os.path.exists(repo[1]):
+            repo = git.Repo(repo[1])
+            repo.clone(repo[0])
+
+
 
 def application():
     """ application logic """
