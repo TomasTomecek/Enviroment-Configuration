@@ -11,7 +11,7 @@
 				"soft": " "
 			}
 		},
-		"log_file": "/home/ttomecek/.powerline.log",
+		"log_file": "~/.powerline.log",
 		"log_level": "DEBUG",
 		"spaces": 1
 	},
@@ -30,7 +30,7 @@
 			"theme": "default"
 		},
 		"tmux": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "default"
 		},
 		"vim": {
