@@ -10,6 +10,7 @@ BOLD="\[\033[1m\]"
 RED="\[\033[1;31m\]"
 GREEN="\[\e[32;1m\]"
 BLUE="\[\e[34;1m\]"
+PURPLE="\[\e[35;1m\]"
 OFF="\[\033[m\]"
 CYAN="\[\e[1;36m\]"
 
@@ -22,6 +23,8 @@ GIT_PS1_SHOWCOLORHINTS=true
 
 export HISTSIZE=200000
 export HISTFILESIZE=200000
+
+export TERM="xterm-16color"
 
 # functions
 
@@ -54,9 +57,9 @@ function exitstatus {
     if [ "$UID" -eq 0 ] ; then
         PS1=${PS1}"${RED}\u${OFF}@"
     fi
-    PS1=${PS1}"${GREEN}\h${OFF}"
+    PS1=${PS1}"${PURPLE}\h${OFF}"
     
-    PS1=${PS1}' \w$(__git_ps1 " (%s)")'
+    PS1=${PS1}" ${BOLD}\w${OFF}$(__git_ps1 " (%s)")"
     
     if [ "${EXITSTATUS}" -ne 0 ] ; then
         PS1=${PS1}"${RED} ${EXITSTATUS}${OFF}"
@@ -84,4 +87,8 @@ alias vs="vim ./*.spec"
 alias gs="git status"
 alias gd="git diff"
 alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
+#alias tmux="TERM=screen-256color-bce tmux"
+# COLORS
+eval `dircolors ~/.dircolors`
 
+[[ -z "$TMUX" ]] && exec tmux -2

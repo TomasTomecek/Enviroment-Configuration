@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " Use Vim defaults (much better!)
 set nocompatible
 " allow backspacing over everything in insert mode
@@ -19,8 +21,9 @@ set ignorecase
 set smartcase
 
 set expandtab 
-set bg=dark
-syntax on
+syntax enable
+set background=dark
+"syntax on
 set hlsearch
 filetype indent plugin on
 filetype plugin on
@@ -28,7 +31,15 @@ set modeline
 set pastetoggle=<F2>
 set showmode
 
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=16 "256
+colorscheme solarized
+
 set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+
+let g:Powerline_theme='short'
+let g:Powerline_colorscheme='skwp'
+let g:Powerline_theme='skwp'
 
 " get rid of annoying <esc> timeout
 set ttimeoutlen=100
@@ -37,8 +48,6 @@ set ttimeoutlen=100
 " Always show statusline
 set laststatus=2
 
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
 
 if has("autocmd")
   augroup fedora
