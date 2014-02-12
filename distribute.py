@@ -5,8 +5,8 @@ Script for distribution of configuration from current git repo
 import os
 import re
 import os.path as osp
-import sys
-import argparse
+#import sys
+#import argparse
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 
@@ -59,19 +59,19 @@ def get_all_files(path):
 
 CONF_FILES = get_all_files(os.path.join(REPO, 'files'))
 
-def cli():
-    """
-    initialize CLI interface
-    """
-    parser = argparse.ArgumentParser(description='Distribute your dot files.')
-    parser.add_argument('-u', '--user', dest='distrib_user', action='store_true',
-                        help='distribute conf files for this user')
-    parser.add_argument('-r', '--root', dest='distrib_root', action='store_true',
-                        help='distribute conf files for root user')
+# def cli():
+#     """
+#     initialize CLI interface
+#     """
+#     parser = argparse.ArgumentParser(description='Distribute your dot files.')
+#     parser.add_argument('-u', '--user', dest='distrib_user', action='store_true',
+#                         help='distribute conf files for this user')
+#     parser.add_argument('-r', '--root', dest='distrib_root', action='store_true',
+#                         help='distribute conf files for root user')
 
-    args = parser.parse_args()
+#     args = parser.parse_args()
 
-    return args, parser
+#     return args, parser
 
 def conf_file_conflicts(conf):
     if osp.exists(osp.join(osp.expanduser('~/'), conf)):
@@ -96,7 +96,7 @@ def sync():
         if not conf_file_conflicts(cf):
            link(cf)
 
-def application(conf):
+def application():
     """ application logic """
 
     #if not conf.distrib_root and not conf.distrib_user:
@@ -107,12 +107,14 @@ def application(conf):
 def main():
     """ entry point, wrapper """
 
-    conf, parser = cli()
+    #conf, parser = cli()
 
     try:
-        application(conf)
+        application()
+        #application(conf)
     except Exception as ex:
-        parser.error('Error during execution: %s' % ex)
+        print 'Error during execution: %s' % ex
+        #parser.error('Error during execution: %s' % ex)
 
 
 if __name__ == '__main__':
