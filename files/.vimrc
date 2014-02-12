@@ -1,7 +1,16 @@
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Use Vim defaults (much better!)
 set nocompatible
+
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+
 " allow backspacing over everything in insert mode
 set bs=indent,eol,start		
 
