@@ -105,7 +105,7 @@ def setup():
     check if core components are installed:
      * vundle
      * solarized for vim
-     * font
+     * font -- http://media.nodnod.net/Inconsolata-dz.otf.zip
      ...
     """
     repos = [
